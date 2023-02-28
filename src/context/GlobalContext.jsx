@@ -1,61 +1,58 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext,  useState } from "react";
 
 export const GlobalState = createContext(null);
 
 export const ContextProvider = ({ children }) => {
-  const [filteredProduct, setFilteredProduct] = useState([]);
-  const [count, setCount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
   const [category, setCategory] = useState("");
   const [filterPrice, setFilterPrice] = useState(1000);
   const [order, setOrder] = useState("");
   const [range, setRange] = useState(200);
-  const [total, setTotal] = useState(0);
 
-  useEffect(() => {
-    console.log(filteredProduct);
-  }, [filteredProduct]);
 
   //this function is used to add the cart items from overall pages
 
-  const addCartItems = (id, product) => {
+  const addToCartItem = (product) => {
     let isFound = false;
-    if (filteredProduct === []) {
-      setFilteredProduct([{ ...product, quantity: 1 }]);
-      console.log(product);
+    if (cartItems === []) {
+      //adding the quantity to the previous cartitems if it is not there
+      setCartItems([{ ...product, quantity: 1 }]);
       return;
     }
 
-    filteredProduct.forEach((filterproduct) => {
+    cartItems.forEach((filterproduct) => {
       if (product.id === filterproduct.id) {
         isFound = true;
+        //now the product is there in the list so 
+        //just update the quantity
         filterproduct.quantity += 1;
-        setFilteredProduct([...filteredProduct]);
+        setCartItems([...cartItems]);
       }
     });
 
+    //if it didn't found then spread the previous values and add the
+    //quantity to it
     if (!isFound) {
-      setFilteredProduct([...filteredProduct, { ...product, quantity: 1 }]);
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
     }
 
-    // setCount((prev) => prev + 1);
   };
 
   //this function is used to delete the cart items from the single cart
-  const deleteCartItems = (id, product) => {
-    const filtered = filteredProduct.filter((item) => {
-      return item.id != id;
+  const deleteItemFromCart = product => {
+    const filtered = cartItems.filter((item) => {
+      return item.id != product.id;
     });
-    setCount((prev) => prev - 1);
 
-    setFilteredProduct(filtered);
+    setCartItems(filtered);
   };
 
  
 
   const contextValue = {
-    addCartItems,
-    deleteCartItems,
-    filteredProduct,
+    addToCartItem,
+    deleteItemFromCart,
+    cartItems,
     category,
     setCategory,
     filterPrice,
@@ -64,8 +61,6 @@ export const ContextProvider = ({ children }) => {
     range,
     setRange,
     setFilterPrice,
-    total,
-    setTotal,
   };
 
   return (

@@ -3,7 +3,7 @@ import { GlobalState } from "../../context/GlobalContext";
 import { NavLink } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 const CartIcon = () => {
-  const { filteredProduct } = useContext(GlobalState);
+  const { cartItems } = useContext(GlobalState);
 
   return (
     <>
@@ -12,10 +12,10 @@ const CartIcon = () => {
           <AiOutlineShoppingCart />
         </NavLink>
 
-        {filteredProduct.length > 0 && (
+        {cartItems?.length > 0 && (
           <div className="cart--icon">
             {" "}
-            <span>{filteredProduct.length}</span>
+            <span>{cartItems?.length}</span>
           </div>
         )}
       </i>

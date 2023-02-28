@@ -6,7 +6,7 @@
     justify-content: center;
     min-height: 80vh;
     font-size: 2rem;
-    
+
   }
   &__container {
     display: flex;
@@ -37,14 +37,14 @@
         justify-content: space-between;
         align-items: center;
         position: relative;
+        & i{
+          color: black;
+        }
         & input{
           border:none;
           outline: none;
           font-size: 1rem;
-          & i{
-            position: absolute;
-            right: 0;
-          }
+          
         
         }
       }

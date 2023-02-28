@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import Card from "./Card";
+import Card from "./SingleCard";
 import { GlobalState } from "../../context/GlobalContext";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import ProductInput from "./ProductInput";
+import ProductInput from "./InputProduct";
 import { baseUrl, fetchApi, status } from "../../Data/API";
 
 const ProductList = () => {
@@ -11,7 +11,7 @@ const ProductList = () => {
   const [searchInput, setSearchInput] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { category, setCategory, filterPrice, order } = useContext(GlobalState);
+  const { category, filterPrice, order } = useContext(GlobalState);
 
   const [products, setProducts] = useState([]);
   let itemFound = 0;
@@ -24,8 +24,6 @@ const ProductList = () => {
   //   setProducts(data);
   //   setLoading(false);
   // };
-
- 
 
   const getCategoryData = async () => {
     setLoading(true);
@@ -93,14 +91,9 @@ const ProductList = () => {
     })
     ?.slice(0, visible)
 
-    ?.map((product, idx) => {
-      return (
-        <>
-          <Card key={product.id} product={product} />
-        </>
-      );
+    ?.map((product) => {
+      return <Card key={product.id} product={product} />;
     });
-    console.log("array length" + productsComp.length)
 
   return (
     <>
@@ -121,9 +114,11 @@ const ProductList = () => {
                   products={products}
                   setProducts={setProducts}
                 />
-                <div className="productList__container_right--contain">{productsComp}</div>
+                <div className="productList__container_right--contain">
+                  {productsComp}
+                </div>
                 <div className="productList__btn">
-                  { productsComp.length > 0 ? (
+                  {productsComp.length > 0 ? (
                     <button onClick={visibleHandler}>
                       {btn ? <span>show less</span> : <span>show more</span>}
                     </button>

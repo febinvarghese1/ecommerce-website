@@ -133,7 +133,7 @@ html a, body a {
   margin-top: 80px;
 }
 .cart i {
-  color: white;
+  color: black;
 }
 .cart__contain {
   margin-top: 40px;
@@ -500,14 +500,13 @@ html a, body a {
   align-items: center;
   position: relative;
 }
+.productList__container_right--input i {
+  color: black;
+}
 .productList__container_right--input input {
   border: none;
   outline: none;
   font-size: 1rem;
-}
-.productList__container_right--input input i {
-  position: absolute;
-  right: 0;
 }
 .productList__btn {
   display: flex;
