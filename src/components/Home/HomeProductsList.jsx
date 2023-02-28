@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Card from "../Products/SingleCard";
+import SingleCard from "../../components/Products/SingleCard";
 import Flex from "./FlexComponent";
 import Floating from "./FloatingComponent";
 const HomeProductsList = () => {
@@ -23,7 +23,7 @@ const HomeProductsList = () => {
         <section className="homeproduct__trending--contain">
           <div className="homeproduct__trending_items">
             {trendingProducts.splice(3, 5).map((product) => (
-              <Card product={product} key={product.id} />
+              <SingleCard product={product} key={product.id} />
             ))}
           </div>
         </section>
@@ -36,7 +36,7 @@ const HomeProductsList = () => {
         <section className="homeproduct__today--contain">
           <div className="homeproduct__today_items">
             {trendingProducts.splice(10, 14).map((product) => (
-              <Card product={product} key={product.id} />
+              <SingleCard product={product} key={product.id} />
             ))}
           </div>
         </section>
