@@ -5,22 +5,18 @@ import { NavLink } from "react-router-dom";
 import FilteredCarts from "./FilteredCarts";
 
 const Cart = () => {
-
-
-  
-
-  
-
   return (
-    <div className="cart">
+    <>
       <Header />
-      <NavLink to="/products">
-        <i className="cart--nav">
-          <AiOutlineArrowLeft />
-        </i>
-      </NavLink>
-      <FilteredCarts />
-    </div>
+      <div className="cart">
+        <NavLink to="/products">
+          <i className="cart--nav">
+            <AiOutlineArrowLeft />
+          </i>
+        </NavLink>
+        <FilteredCarts />
+      </div>
+    </>
   );
 };
 

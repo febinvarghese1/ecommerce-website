@@ -3,18 +3,18 @@ import Card from "./Card";
 import { GlobalState } from "../../context/GlobalContext";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import ProductInput from "./ProductInput";
-import { baseUrl, fetchApi } from "../../Data/API";
+import { baseUrl, fetchApi, status } from "../../Data/API";
 
 const ProductList = () => {
   const [visible, setVisible] = useState(3);
   const [btn, setBtn] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [showBtn,setShowBtn] = useState(true);
 
-  const { category, filterPrice, order } = useContext(GlobalState);
+  const { category, setCategory, filterPrice, order } = useContext(GlobalState);
 
   const [products, setProducts] = useState([]);
+  let itemFound = 0;
   console.log(order);
 
   //used to fetch data from the api
@@ -25,13 +25,15 @@ const ProductList = () => {
   //   setLoading(false);
   // };
 
+ 
+
   const getCategoryData = async () => {
     setLoading(true);
-    const response = await fetch(
-      `${baseUrl}/category/${category}`
-    );
-    const data = await response.json();
-    setProducts(data);
+    try {
+      const response = await fetch(`${baseUrl}/category/${category}`);
+      const data = await response.json();
+      setProducts(data);
+    } catch (e) {}
     setLoading(false);
   };
 
@@ -67,53 +69,74 @@ const ProductList = () => {
       return b.price - a.price;
     }
   };
+  console.log(itemFound);
+
+  const productsComp = products
+    ?.filter((item) => {
+      if (searchInput.toLowerCase() === "") {
+        return item;
+      }
+      if (item.title.toLowerCase().includes(searchInput)) {
+        itemFound = 1;
+        return item.title.toLowerCase().includes(searchInput);
+      } else {
+        itemFound = -1;
+      }
+    })
+    ?.filter((value) => {
+      if (value.price < filterPrice) {
+        return value.price < filterPrice;
+      }
+    })
+    ?.sort((a, b) => {
+      return sortFunction(a, b);
+    })
+    ?.slice(0, visible)
+
+    ?.map((product, idx) => {
+      return (
+        <>
+          <Card key={product.id} product={product} />
+        </>
+      );
+    });
+    console.log("array length" + productsComp.length)
 
   return (
     <>
       <div className="productList">
-        <div className="productList__container">
-          {loading ? (
-            <div className="loading">
-              <AiOutlineLoading3Quarters className="loading-animation" />
-            </div>
-          ) : (
-            <section className="productList__container_right">
-              <ProductInput setSearchInput={setSearchInput} />
-              <div className="productList__container_right--contain">
-                {products
-                  ?.filter((item) => {
-                    if(searchInput.toLowerCase() === ""){
-                      return item;
-                    }if(item.title.toLowerCase().includes(searchInput)){
-                      return item.title.toLowerCase().includes(searchInput);
-                    }else{
-                    }
-                   
-                  })
-                  ?.filter((value) => {
-                    return value.price < filterPrice;
-                  })
-                  ?.sort((a, b) => {
-                    return sortFunction(a, b);
-                  })
-                  ?.slice(0, visible)
-
-                  ?.map((product) => (
-                    <Card key={product.id} product={product} />
-                  ))}
+        {status ? (
+          <div className="productList__server">SERVER FAILED</div>
+        ) : (
+          <div className="productList__container">
+            {loading ? (
+              <div className="loading">
+                <AiOutlineLoading3Quarters className="loading-animation" />
               </div>
-              <div className="productList__btn">
-                {showBtn ? <button onClick={visibleHandler}>
-                  {btn ? <span>show less</span> : <span>show more</span>}
-                </button> :
-                <>
-                <h1>
-                  There are no products</h1></>}
-                
-              </div>
-            </section>
-          )}
-        </div>
+            ) : (
+              <section className="productList__container_right">
+                <ProductInput
+                  searchInput={searchInput}
+                  setSearchInput={setSearchInput}
+                  products={products}
+                  setProducts={setProducts}
+                />
+                <div className="productList__container_right--contain">{productsComp}</div>
+                <div className="productList__btn">
+                  {(itemFound === 0 || itemFound === 1) && productsComp.length > 0 ? (
+                    <button onClick={visibleHandler}>
+                      {btn ? <span>show less</span> : <span>show more</span>}
+                    </button>
+                  ) : (
+                    <div className="productList__server">
+                      There are no products
+                    </div>
+                  )}
+                </div>
+              </section>
+            )}
+          </div>
+        )}
       </div>
     </>
   );

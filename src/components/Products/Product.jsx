@@ -5,7 +5,7 @@ import heroImage from "../../placeholder.png";
 import Header from "../pages/Header";
 import { IoMdArrowDropleft } from "react-icons/io";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import AddToCartSingle from "../Cart/AddToCartSingle";
+import AddToCart from "../Cart/AddToCart";
 
 const Product = () => {
   const [product, setProduct] = useState({});
@@ -77,7 +77,10 @@ const Product = () => {
               <span>Category: {product.category}</span>
               <p>price: ${product.price}</p>
             </div>
-           <AddToCartSingle product={product} />
+            <div className="product__right_bottom">
+           <AddToCart product={product} />
+
+            </div>
           </div>
         </div>
       )}

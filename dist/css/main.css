@@ -86,19 +86,14 @@ html a, body a {
   justify-content: space-between;
   text-transform: uppercase;
 }
-.product__right_bottom, .cart__contain_card_details_items--btn {
+.product__right_bottom {
   margin-top: 80px;
-}
-.product__right_bottom button, .cart__contain_card_details_items--btn button {
-  padding: 15px 30px;
-  width: 300px;
-  border: none;
   background: black;
-  color: white;
-  border-radius: 10px;
-  text-transform: uppercase;
-  cursor: pointer;
-  letter-spacing: 3px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
 }
 .product--nav {
   font-size: 2.5rem;
@@ -131,6 +126,10 @@ html a, body a {
 .cart {
   position: relative;
   min-height: 100vh;
+  margin-top: 80px;
+}
+.cart i {
+  color: white;
 }
 .cart__contain {
   margin-top: 40px;
@@ -172,6 +171,7 @@ html a, body a {
   color: gray;
   font-weight: 600;
   font-size: 2rem;
+  font-family: "poppins";
 }
 .cart__contain_card_details_items--button {
   display: flex;
@@ -180,12 +180,39 @@ html a, body a {
 .cart__contain_card_details_items--button span {
   padding: 10px;
   font-size: 1.4rem;
+  font-family: "playfair display";
+}
+.cart__contain_card_details_items--button p {
+  font-size: 1.1rem;
 }
 .cart__contain_card_details_items--button button {
   padding: 6px 15px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: black;
+  color: white;
+  border: none;
+}
+.cart__contain_card_details_items--button i {
+  width: 40px;
+  height: 40px;
+  padding-top: 6px;
+  padding-inline: 5px;
+  margin-left: 30px;
   background-color: white;
+  border-radius: 50%;
+  color: black;
+  font-size: 1.5rem;
+}
+.cart__contain_card_details_items--button--remove {
+  background: black;
+  color: white;
   border: 0.5px solid black;
+  padding: 10px 20px !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 30px;
 }
 .cart__contain_card_details_items--flex {
   width: 300px;
@@ -214,9 +241,6 @@ html a, body a {
   font-weight: 200;
   text-transform: capitalize;
   padding-block: 10px;
-}
-.cart__contain_card_details_items--btn {
-  display: flex;
 }
 .cart__contain_card_details_items--btn h1, .cart__contain_card_details_items--btn span {
   padding-bottom: 20px;
@@ -434,6 +458,13 @@ html a, body a {
 
 .productList {
   margin-top: 60px;
+}
+.productList__server {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  font-size: 2rem;
 }
 .productList__container {
   display: flex;

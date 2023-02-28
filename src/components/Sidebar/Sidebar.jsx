@@ -2,9 +2,34 @@ import React, { useState, useContext  } from "react";
 import { GlobalState } from "../../context/GlobalContext";
 
 const Sidebar = () => {
-  const { setOrderFunc,handleCheckHandler,checkFilterPrice,range,setRangeFunc } =
+  const { setOrder,setCategory,setFilterPrice,setRange,range } =
     useContext(GlobalState);
+ //this function is used to check which category is used
+ const handleCheckHandler = (e) => {
+  let value = e.target.value;
+  setCategory(value);
+};
 
+//this function is used to check the price which is filtered
+const checkFilterPrice = (e) => {
+  if (e.target.checked) {
+    setFilterPrice(e.target.value);
+  }
+};
+
+//this function is used to get the order from the sidebar
+const setOrderFunc = (e) => {
+  setOrder(e.target.value);
+};
+
+
+//this function is used to get the range from the sidebar
+
+const setRangeFunc = (e) => {
+  //setting the filter price from the range
+  setFilterPrice(range);
+  setRange(e.target.value);
+};
    
  
 

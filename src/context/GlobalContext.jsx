@@ -19,28 +19,23 @@ export const ContextProvider = ({ children }) => {
 
   const addCartItems = (id, product) => {
     let isFound = false;
-    if(filteredProduct === []) {
-      setFilteredProduct([{...product,quantity:1}])
-      console.log(product)
+    if (filteredProduct === []) {
+      setFilteredProduct([{ ...product, quantity: 1 }]);
+      console.log(product);
       return;
     }
 
     filteredProduct.forEach((filterproduct) => {
       if (product.id === filterproduct.id) {
         isFound = true;
-        console.log(product.id);
-        console.log(filterproduct.id);
         filterproduct.quantity += 1;
-        console.log(filterproduct)
         setFilteredProduct([...filteredProduct]);
       }
     });
 
-    if(!isFound){
-      setFilteredProduct([...filteredProduct,{...product,quantity:1}])
-
+    if (!isFound) {
+      setFilteredProduct([...filteredProduct, { ...product, quantity: 1 }]);
     }
-
 
     // setCount((prev) => prev + 1);
   };
@@ -55,54 +50,20 @@ export const ContextProvider = ({ children }) => {
     setFilteredProduct(filtered);
   };
 
-  //this function is used to check which category is used
-  const handleCheckHandler = (e) => {
-    let value = e.target.value;
-    setCategory(value);
-  };
-
-  //this function is used to check the price which is filtered
-  const checkFilterPrice = (e) => {
-    if (e.target.checked) {
-      setFilterPrice(e.target.value);
-    }
-  };
-
-  //this function is used to get the order from the sidebar
-  const setOrderFunc = (e) => {
-    setOrder(e.target.value);
-  };
-
-  //this function is used to get the count of the cart
-  const getCount = () => {
-    return count;
-  };
-
-  //this function is used to get the range from the sidebar
-
-  const setRangeFunc = (e) => {
-    //setting the filter price from the range
-    setFilterPrice(range);
-    setRange(e.target.value);
-  };
+ 
 
   const contextValue = {
-    count,
     addCartItems,
     deleteCartItems,
     filteredProduct,
     category,
     setCategory,
     filterPrice,
-    checkFilterPrice,
     order,
     setOrder,
     range,
-    setOrderFunc,
-    handleCheckHandler,
     setRange,
-    getCount,
-    setRangeFunc,
+    setFilterPrice,
     total,
     setTotal,
   };
