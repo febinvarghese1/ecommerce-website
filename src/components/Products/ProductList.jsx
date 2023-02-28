@@ -123,7 +123,7 @@ const ProductList = () => {
                 />
                 <div className="productList__container_right--contain">{productsComp}</div>
                 <div className="productList__btn">
-                  {(itemFound === 0 || itemFound === 1) && productsComp.length > 0 ? (
+                  { productsComp.length > 0 ? (
                     <button onClick={visibleHandler}>
                       {btn ? <span>show less</span> : <span>show more</span>}
                     </button>

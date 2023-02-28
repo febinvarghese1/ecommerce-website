@@ -32,4 +32,4 @@ const AddToCart = ({product}) => {
   );
 };
 
-export default AddToCart;
+export default React.memo(AddToCart);

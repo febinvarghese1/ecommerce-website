@@ -94,6 +94,10 @@ html a, body a {
   align-items: center;
   justify-content: center;
   width: 40%;
+  transition: all 0.3s ease;
+}
+.product__right_bottom:hover {
+  transform: scale(1.1);
 }
 .product--nav {
   font-size: 2.5rem;

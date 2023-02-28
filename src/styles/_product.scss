@@ -77,6 +77,10 @@
       align-items: center;
       justify-content: center;
       width: 40%;
+      transition: all .3s ease;
+      &:hover{
+        transform: scale(1.1);
+      }
 
       
     }
