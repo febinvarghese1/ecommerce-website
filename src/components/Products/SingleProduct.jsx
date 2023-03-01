@@ -1,4 +1,4 @@
-import React, { useEffect, useState  } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import heroImage from "../../placeholder.png";
@@ -11,7 +11,7 @@ const Product = () => {
   const [singleProduct, setSingleProduct] = useState({});
   const [loading, setLoading] = useState(false);
   let { id } = useParams();
-  
+
   const fetchSingleProduct = async (id) => {
     setLoading(true);
     const response = await fetch(`https://fakestoreapi.com/products/${id}`);
@@ -24,10 +24,6 @@ const Product = () => {
     fetchSingleProduct(id);
   }, []);
 
-
-  
-
-
   return (
     <div className="product">
       <Header />
@@ -38,7 +34,7 @@ const Product = () => {
       </NavLink>
       {loading ? (
         <div className="loading">
-       <AiOutlineLoading3Quarters className="loading-animation" />
+          <AiOutlineLoading3Quarters className="loading-animation" />
         </div>
       ) : (
         <div className="product__wrapper">
@@ -77,8 +73,7 @@ const Product = () => {
               <p>price: ${singleProduct.price}</p>
             </div>
             <div className="product__right_bottom">
-           <AddToCart product={singleProduct} />
-
+              <AddToCart product={singleProduct} />
             </div>
           </div>
         </div>
@@ -86,5 +81,5 @@ const Product = () => {
     </div>
   );
 };
-// 
+//
 export default Product;

@@ -14,7 +14,6 @@ const HomeProductsList = () => {
   useEffect(() => {
     fetchApi();
   }, []);
- 
 
   return (
     <div className="homeproduct">

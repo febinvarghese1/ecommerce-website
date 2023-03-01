@@ -30,8 +30,7 @@ const Card = ({ product }) => {
       <section className="card__price">
         <span className="card__price--price">$ {product?.price}</span>
         <div className="card__price_btn">
-        <AddToCart product={product} />
-
+          <AddToCart product={product} />
         </div>
       </section>
     </div>

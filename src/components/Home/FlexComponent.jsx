@@ -27,8 +27,6 @@ const Flex = () => {
         </div>
       </div>
 
-    
-
       <div className="flex__col flex__col--large">
         <div className="flex__col_row">
           <img

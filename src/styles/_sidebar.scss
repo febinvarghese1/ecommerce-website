@@ -6,12 +6,11 @@
   padding: 15px;
   width: 16vw;
   border-right: 0.5px solid gray;
-  accent-color: #8f00ff;
   font-size: .9rem !important; 
-
+  
   & input[type="radio"] {
     border: 0.5px solid black;
-    color: red;
+    accent-color: #8f00ff;
     font-size: 2rem;
     width: 20px;
     height: 20px;
@@ -21,8 +20,9 @@
     font-size: 4rem;
     margin-top: 60px;
   }
-
+  
   &__center {
+    text-transform: capitalize !important;
     padding-left: 20px;
     font-family: sans-serif;
     & h3 {
@@ -51,14 +51,15 @@
         margin-top: 10px;
       }
     }
-    &_price{
-          
-        text-transform: uppercase;
-    }
+   
     &_range {
+      accent-color: #8F00FF;
       & section {
         display: flex;
         align-items: center;
+        & span{
+          display: block;
+        }
 
         & input {
           color: black;

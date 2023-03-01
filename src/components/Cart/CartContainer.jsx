@@ -11,13 +11,13 @@ const CartContainer = () => {
     if (operation === "add") {
       setTotalPrice((prev) => prev + price);
     }
-    if(operation === 'addTotal'){
-      setTotalPrice((prev) => prev + (cart*price));
+    if (operation === "addTotal") {
+      setTotalPrice((prev) => prev + cart * price);
     }
     if (operation === "removeAll") {
-      setTotalPrice((prev) => prev - (price * cart));
-    } 
-    if(operation === "remove"){
+      setTotalPrice((prev) => prev - price * cart);
+    }
+    if (operation === "remove") {
       setTotalPrice((prev) => prev - price);
     }
   };

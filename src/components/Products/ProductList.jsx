@@ -17,14 +17,6 @@ const ProductList = () => {
   let itemFound = 0;
   console.log(order);
 
-  //used to fetch data from the api
-  // const fetchApi = async () => {
-  //   setLoading(true);
-
-  //   setProducts(data);
-  //   setLoading(false);
-  // };
-
   const getCategoryData = async () => {
     setLoading(true);
     try {
@@ -49,8 +41,12 @@ const ProductList = () => {
   }, []);
 
   useEffect(() => {
-    getCategoryData();
-    setSearchInput("");
+    if (category.length > 0) {
+      getCategoryData();
+      setSearchInput("");
+    } else {
+      getData();
+    }
   }, [category]);
 
   //read more functionality
@@ -61,7 +57,7 @@ const ProductList = () => {
 
   //sorting function when ascending (low) and descending (high)
   const sortFunction = (a, b) => {
-    if (order == "asc") {
+    if (order === "asc") {
       return a.price - b.price;
     } else {
       return b.price - a.price;

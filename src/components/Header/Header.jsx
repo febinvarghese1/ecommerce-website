@@ -1,25 +1,21 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { IoLogoPolymer, IoMdNotifications } from "react-icons/io";
-import {
-  AiOutlineInstagram,
-  AiOutlineFacebook,
-  AiOutlineTwitter,
-} from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import CartIcon from "../Cart/CartIcon";
 
 const Header = () => {
-
   return (
     <div className="header">
       <div className="header__left">
-       <NavLink to="/" style={{color:"white",display:"flex",alignItems:"center"}}>
-        <h1 className="header__left_heading">shopkart</h1>
-        <i>
-          <IoLogoPolymer />
-        </i>
-
-       </NavLink>
+        <NavLink
+          to="/"
+          style={{ color: "white", display: "flex", alignItems: "center" }}
+        >
+          <h1 className="header__left_heading">shopkart</h1>
+          <i>
+            <IoLogoPolymer />
+          </i>
+        </NavLink>
       </div>
       <div className="header__center">
         <ul className="header__center_list">
@@ -45,7 +41,7 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink 
+            <NavLink
               to="/add"
               style={{ textDecoration: "none", color: "white" }}
             >
@@ -56,7 +52,6 @@ const Header = () => {
       </div>
       <div className="header__right">
         <div className="header__right_container">
-        
           <i>
             <IoMdNotifications />
           </i>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { GlobalState } from "../../context/GlobalContext";
 import SidebarInputs from "./SidebarInputs";
 
@@ -38,65 +38,61 @@ const Sidebar = () => {
       id: "men's clothing",
       value: "men's clothing",
       name: "category",
-      onChange: setCategoryFunction ,
+      onChange: setCategoryFunction,
     },
     {
       type: "radio",
       id: "women's clothing",
       value: "women's clothing",
       name: "category",
-      onChange: setCategoryFunction ,
+      onChange: setCategoryFunction,
     },
     {
       type: "radio",
       id: "jewelery",
       value: "jewelery",
       name: "category",
-      onChange:setCategoryFunction ,
+      onChange: setCategoryFunction,
     },
     {
       type: "radio",
       id: "electronics",
       value: "electronics",
       name: "category",
-      onChange: setCategoryFunction ,
+      onChange: setCategoryFunction,
     },
   ];
 
-
-const PriceDataValues =  [
-  {
-    type:"radio",
-    id:"20",
-    value:"20",
-    name:"filterprice",
-    onChange:setFilterPriceFunction
-  ,
-  },{
-    type:"radio",
-    id:"50",
-    value:"50",
-    name:"filterprice",
-    onChange:setFilterPriceFunction
-  },{
-    type:"radio",
-    id:"100",
-    value:"100",
-    name:"filterprice",
-    onChange:setFilterPriceFunction
-  },
-  {
-    type:"radio",
-    id:"200",
-    value:"200",
-    name:"filterprice",
-    onChange:setFilterPriceFunction
-  }
-]
-
-
-
-
+  const PriceDataValues = [
+    {
+      type: "radio",
+      id: "20",
+      value: "20",
+      name: "filterprice",
+      onChange: setFilterPriceFunction,
+    },
+    {
+      type: "radio",
+      id: "50",
+      value: "50",
+      name: "filterprice",
+      onChange: setFilterPriceFunction,
+    },
+    {
+      type: "radio",
+      id: "100",
+      value: "100",
+      name: "filterprice",
+      onChange: setFilterPriceFunction,
+    },
+    {
+      type: "radio",
+      id: "200",
+      value: "200",
+      name: "filterprice",
+      onChange: setFilterPriceFunction,
+    },
+  ];
 
   return (
     <div className="sidebar">
@@ -105,17 +101,30 @@ const PriceDataValues =  [
         <div className="sidebar__center_discount">
           <h3>Category</h3>
           <div className="sidebar__center_discount_items">
-           {CategoryDataValues.map(category=>(
-            <SidebarInputs type={category.type} id={category.id} name={category.name} value={category.value} onChange={category.onChange} />
-           ))}
+            {CategoryDataValues.map((category) => (
+              <SidebarInputs
+                key={category.id}
+                type={category.type}
+                id={category.id}
+                name={category.name}
+                value={category.value}
+                onChange={category.onChange}
+              />
+            ))}
           </div>
         </div>
         <div className="sidebar__center_filter">
           <h3>Filters</h3>
-            {PriceDataValues.map(price =>(
-          <SidebarInputs type={price.type} name={price.name} id={price.id} value={price.value} onChange={price.onChange} />
-              
-            ))}
+          {PriceDataValues.map((price) => (
+            <SidebarInputs
+              key={price.id}
+              type={price.type}
+              name={price.name}
+              id={price.id}
+              value={price.value}
+              onChange={price.onChange}
+            />
+          ))}
         </div>
 
         <div className="sidebar__center_price">
@@ -151,10 +160,10 @@ const PriceDataValues =  [
               list="values"
               min={10}
               step={10}
-              max={500}
+              max={200}
               onChange={setRangeFunction}
             />
-            <label>{range}</label>
+            <label>200</label>
           </section>
         </div>
       </div>
@@ -162,4 +171,4 @@ const PriceDataValues =  [
   );
 };
 
-export default Sidebar;
+export default React.memo(Sidebar);

@@ -7,7 +7,6 @@ const SingleCart = ({ product, calculateTotalFunction }) => {
   const { deleteItemFromCart, value } = useContext(GlobalState);
   const [singleCartCount, setSingleCartCount] = useState(product.quantity);
 
-
   useEffect(() => {
     calculateTotalFunction(product.price, singleCartCount, "addTotal");
   }, []);

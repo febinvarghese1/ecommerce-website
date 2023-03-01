@@ -9,12 +9,10 @@ const ProductInput = ({ setSearchInput }) => {
           type="text"
           onChange={(e) => setSearchInput(e.target.value)}
           placeholder="Search ..."
-        
         />
         <i>
           <AiOutlineSearch />
         </i>
-        
       </div>
     </div>
   );

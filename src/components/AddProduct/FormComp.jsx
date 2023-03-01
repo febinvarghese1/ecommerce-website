@@ -1,6 +1,6 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 
-const FormComp = ({setModal}) => {
+const FormComp = ({ setModal }) => {
   const [product, setProduct] = useState({});
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
@@ -12,11 +12,10 @@ const FormComp = ({setModal}) => {
     setFile(e.target.files[0]);
     let filer = new FileReader();
     let image = e.target.files;
-    filer.onload = ()=>{
-
+    filer.onload = () => {
       const data = file.result;
       console.log(data);
-    }
+    };
   };
   const PostApi = async () => {
     const response = await fetch("http://localhost:5500/products", {
@@ -82,7 +81,11 @@ const FormComp = ({setModal}) => {
         </div>
         <div className="addproduct__form_items">
           <label>Enter The description</label>
-          <textarea value={desc} onChange={(e) => setDesc(e.target.value)} placeholder="Enter the description" />
+          <textarea
+            value={desc}
+            onChange={(e) => setDesc(e.target.value)}
+            placeholder="Enter the description"
+          />
         </div>
         <div className="addproduct__form_items addproduct__form_items--file">
           <label>

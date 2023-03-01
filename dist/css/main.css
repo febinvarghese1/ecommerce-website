@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Lora:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Golos+Text:wght@400;500;700;800&family=Lora:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -45,7 +45,7 @@ html a, body a {
 .product__right {
   flex: 1;
   padding: 30px;
-  font-family: "Playfair Display";
+  font-family: "Golos Text";
 }
 .product__right_top {
   margin-top: 80px;
@@ -325,7 +325,7 @@ html a, body a {
 }
 .header__center {
   flex: 3;
-  font-family: "Playfair Display";
+  font-family: "Golos Text";
   font-weight: 500;
 }
 .header__center_list {
@@ -411,7 +411,7 @@ html a, body a {
   flex-direction: column;
 }
 .home__container_left {
-  font-family: "Playfair Display";
+  font-family: "Golos Text";
   padding: 20px;
   position: absolute;
   left: 5%;
@@ -540,12 +540,11 @@ html a, body a {
   padding: 15px;
   width: 16vw;
   border-right: 0.5px solid gray;
-  accent-color: #8f00ff;
   font-size: 0.9rem !important;
 }
 .sidebar input[type=radio] {
   border: 0.5px solid black;
-  color: red;
+  accent-color: #8f00ff;
   font-size: 2rem;
   width: 20px;
   height: 20px;
@@ -556,6 +555,7 @@ html a, body a {
   margin-top: 60px;
 }
 .sidebar__center {
+  text-transform: capitalize !important;
   padding-left: 20px;
   font-family: sans-serif;
 }
@@ -578,12 +578,15 @@ html a, body a {
 .sidebar__center_filter section {
   margin-top: 10px;
 }
-.sidebar__center_price {
-  text-transform: uppercase;
+.sidebar__center_range {
+  accent-color: #8F00FF;
 }
 .sidebar__center_range section {
   display: flex;
   align-items: center;
+}
+.sidebar__center_range section span {
+  display: block;
 }
 .sidebar__center_range section input {
   color: black;

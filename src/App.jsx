@@ -7,21 +7,24 @@ import { ContextProvider } from "./context/GlobalContext";
 import About from "./pages/About";
 import AddProduct from "./pages/AddProduct";
 import ProductsContainer from "./pages/ProductsContainer";
+import Layout from "./Layout/Layout";
 function App() {
   return (
     <ContextProvider>
       <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<ProductsContainer />} />
-          <Route path="/about" element={<About />}/>
-          <Route path="/add" element={<AddProduct />}/>
-          <Route path="/product">
-            <Route index element={<Product />} />
-            <Route path=":id" element={<Product />} />
-          </Route>
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<ProductsContainer />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/add" element={<AddProduct />} />
+            <Route path="/product">
+              <Route index element={<Product />} />
+              <Route path=":id" element={<Product />} />
+            </Route>
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </Layout>
       </Router>
     </ContextProvider>
   );
