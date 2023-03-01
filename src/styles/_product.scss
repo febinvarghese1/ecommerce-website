@@ -103,11 +103,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 100%;
 
   &-animation{
     font-size: 3rem;
-    animation: animateIcon infinite 1s ease;
+    animation: animateIcon infinite 2s ease;
   }
 }
 

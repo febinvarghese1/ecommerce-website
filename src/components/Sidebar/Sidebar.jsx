@@ -145,13 +145,13 @@ const PriceDataValues =  [
         <div className="sidebar__center_range">
           <h3>Select the range</h3>
           <section>
-            <label>0</label>
+            <label>10</label>
             <input
               type="range"
               list="values"
-              min={0}
+              min={10}
               step={10}
-              max={200}
+              max={500}
               onChange={setRangeFunction}
             />
             <label>{range}</label>

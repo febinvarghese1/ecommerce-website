@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "../components/Header/Header";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import CartContainer from "../components/Cart/CartContainer";
+import Layout from "../Layout/Layout";
 
 const Cart = () => {
   return (
     <>
-      <Header />
+    <Layout>
       <div className="cart">
         <NavLink to="/products">
           <i className="cart--nav">
@@ -16,6 +16,7 @@ const Cart = () => {
         </NavLink>
         <CartContainer />
       </div>
+      </Layout>
     </>
   );
 };

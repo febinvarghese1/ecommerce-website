@@ -3,7 +3,7 @@ import { AiOutlineLeft } from "react-icons/ai";
 import { FaCheckCircle } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import FormComp from "../components/AddProduct/FormComp";
-import Header from "../components/Header/Header";
+import Layout from "../Layout/Layout";
 
 const AddProduct = () => {
 
@@ -24,7 +24,7 @@ const AddProduct = () => {
 
   return (
     <>
-      <Header />
+    <Layout>
       <div className="addproduct">
         <NavLink to="/">
           <i className="addproduct--nav">
@@ -47,6 +47,7 @@ const AddProduct = () => {
           <FormComp setModal={setModal} />
         )}
       </div>
+      </Layout>
     </>
   );
 };

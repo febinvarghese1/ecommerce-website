@@ -5,13 +5,14 @@ import Footer from "../components/Footer/Footer";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
+import Layout from "../Layout/Layout";
 const Home = () => {
   return (
     <div className="home">
+      <Layout >
         <div className="home--img">
           <img src={process.env.PUBLIC_URL+"/assets/img-bg.jpg"} />
         </div>
-      <Header />
       <div className="home__container">
         <div className="home__container_left">
           <h1>Fashion for everyone</h1>
@@ -34,7 +35,7 @@ const Home = () => {
 
         
       </div>
-      <Footer/>
+      </Layout>
     </div>
   );
 };

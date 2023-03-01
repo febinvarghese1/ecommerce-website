@@ -45,7 +45,7 @@ html a, body a {
 .product__right {
   flex: 1;
   padding: 30px;
-  font-family: "Lora";
+  font-family: "Playfair Display";
 }
 .product__right_top {
   margin-top: 80px;
@@ -112,11 +112,11 @@ html a, body a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 100%;
 }
 .loading-animation {
   font-size: 3rem;
-  animation: animateIcon infinite 1s ease;
+  animation: animateIcon infinite 2s ease;
 }
 
 @keyframes animateIcon {
@@ -131,14 +131,20 @@ html a, body a {
   position: relative;
   min-height: 100vh;
   margin-top: 80px;
+  margin-bottom: 100px;
+  overflow: hidden;
 }
 .cart i {
   color: black;
 }
 .cart__contain {
   margin-top: 40px;
-  padding-bottom: 100px;
   position: relative;
+  height: 80vh;
+  margin-left: 10px;
+  overflow-y: scroll;
+  padding-block: 50px;
+  box-shadow: 4px 5px 10px rgba(143, 0, 255, 0.68);
 }
 .cart__contain_card {
   display: flex;
@@ -161,7 +167,7 @@ html a, body a {
 }
 .cart__contain_card_details {
   flex: 1;
-  width: 500px;
+  width: 450px;
 }
 .cart__contain_card_details_items {
   margin-top: 20px;
@@ -271,6 +277,7 @@ html a, body a {
 .cart--nav {
   padding: 20px;
   font-size: 1.8rem;
+  color: white !important;
 }
 .cart--error {
   text-align: center;
@@ -318,7 +325,7 @@ html a, body a {
 }
 .header__center {
   flex: 3;
-  font-family: "Lora";
+  font-family: "Playfair Display";
   font-weight: 500;
 }
 .header__center_list {
@@ -404,7 +411,7 @@ html a, body a {
   flex-direction: column;
 }
 .home__container_left {
-  font-family: "Lora";
+  font-family: "Playfair Display";
   padding: 20px;
   position: absolute;
   left: 5%;
@@ -534,6 +541,7 @@ html a, body a {
   width: 16vw;
   border-right: 0.5px solid gray;
   accent-color: #8f00ff;
+  font-size: 0.9rem !important;
 }
 .sidebar input[type=radio] {
   border: 0.5px solid black;
@@ -569,6 +577,9 @@ html a, body a {
 }
 .sidebar__center_filter section {
   margin-top: 10px;
+}
+.sidebar__center_price {
+  text-transform: uppercase;
 }
 .sidebar__center_range section {
   display: flex;
@@ -984,10 +995,10 @@ html a, body a {
 }
 
 .summary {
-  right: 0%;
-  position: fixed;
+  right: 5%;
+  position: relative;
   margin-right: 10px;
-  top: 20%;
+  top: -120px;
   width: 500px;
   background-color: white;
   border-radius: 30px;

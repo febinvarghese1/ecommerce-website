@@ -7,7 +7,7 @@
   width: 16vw;
   border-right: 0.5px solid gray;
   accent-color: #8f00ff;
-
+  font-size: .9rem !important; 
 
   & input[type="radio"] {
     border: 0.5px solid black;
@@ -45,10 +45,15 @@
       }
     }
     &_filter{
+      
       & section{
         
         margin-top: 10px;
       }
+    }
+    &_price{
+          
+        text-transform: uppercase;
     }
     &_range {
       & section {
