@@ -2,10 +2,9 @@ import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import heroImage from "../../placeholder.png";
 import AddToCart from "../Cart/AddToCartButton";
 
-const Card = ({ product }) => {
+const SingleCard = ({ product }) => {
   return (
     <div className="card">
       <NavLink to={`/product/${product.id}`}>
@@ -14,7 +13,7 @@ const Card = ({ product }) => {
             src={product?.image}
             width={200}
             height={200}
-            placeholderSrc={heroImage}
+            placeholderSrc={process.env.PUBLIC_URL + "/assets/placeholder.png"}
           />
         </div>
         <div className="card__details">
@@ -37,4 +36,4 @@ const Card = ({ product }) => {
   );
 };
 
-export default React.memo(Card);
+export default React.memo(SingleCard);
